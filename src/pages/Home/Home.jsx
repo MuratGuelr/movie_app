@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Home.css";
 import MovieCard from "../../components/MovieCard/MovieCard";
 import { FaSearch } from "react-icons/fa";
-import { searchMovies, getPopularMovies } from "../../Services/api";
+import { searchMovies, getPopularMovies } from "../../services/api";
 
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState("");
