@@ -1,8 +1,4 @@
 .main-content {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
   width: 100%;
-  box-sizing: border-box;
-  padding: 2rem;
+  padding: 0 2rem;
 }

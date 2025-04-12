@@ -1,7 +1,5 @@
 .favorites {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 2rem;
+  padding: 2rem 0;
 }
 
 .favorites h2 {
