@@ -52,21 +52,25 @@ const MovieCard = ({ movie }) => {
         />
         <div className="movie-overlay">
           <div className="vote-result">
-            <span className="star">{voteResult(movie.vote_average)} </span>
-            <span className="vote">{Math.floor(movie.vote_average)}</span>
+            <div className="vote-result-container">
+              <span className="star">{voteResult(movie.vote_average)} </span>
+              <span className="vote">{Math.floor(movie.vote_average)}</span>
+            </div>
+            <button
+              className={`favorite-btn ${favorite ? "active " : ""} `}
+              onClick={onFavoriteClick}
+            >
+              <FaHeart />
+            </button>
           </div>
-          <p className="movie-overview">
-            {movie.overview ? movie.overview : ""}
-          </p>
+          <div className="movie-overview-container">
+            <p className="movie-overview">
+              {movie.overview ? movie.overview : ""}
+            </p>
+          </div>
           <span>
             {movie.adult === true ? <TbRating18Plus size={"80px"} /> : ""}
           </span>
-          <button
-            className={`favorite-btn ${favorite ? "active " : ""} `}
-            onClick={onFavoriteClick}
-          >
-            <FaHeart />
-          </button>
         </div>
       </div>
       <div className="movie-info">

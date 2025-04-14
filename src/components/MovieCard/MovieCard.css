@@ -47,9 +47,6 @@
 }
 
 .favorite-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -105,31 +102,40 @@
   font-size: 0.9rem;
 }
 
+.movie-overview-container {
+  display: flex;
+  overflow-y: scroll;
+  justify-content: end;
+  width: 100%;
+  min-height: 88%;
+  border-radius: 8px;
+}
+
 .movie-overview {
   font-size: 1rem;
   font-weight: 550;
 }
 
 .vote-result {
-  position: absolute;
-  top: 15px;
-  left: 5px;
   display: flex;
-  justify-content: center;
-  border-radius: 50%;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .star {
-  width: 55px;
-  padding: 5px;
-  margin-left: 15px;
-  border-radius: 50%;
+  margin-top: -0.2rem;
   color: #ffd250;
   font-size: 2rem;
 }
+.vote-result-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .vote {
-  margin-top: 38px;
-  margin-left: -38px;
+  margin-top: -1rem;
   color: #fff;
   text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.67);
   font-weight: 600;
