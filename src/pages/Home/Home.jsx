@@ -3,6 +3,8 @@ import "./Home.css";
 import MovieCard from "../../components/MovieCard/MovieCard";
 import { FaSearch } from "react-icons/fa";
 import { searchMovies, getPopularMovies } from "../../services/api";
+import Search from "../../components/Search/Search";
+import Loader from "../../components/Loader/Loader";
 
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -25,53 +27,30 @@ const Home = () => {
     loadPopularMovies();
   }, []);
 
-  const handleSearch = async (e) => {
-    e.preventDefault();
-
-    if (!searchQuery.trim()) return;
-    if (loading) return;
-    setLoading(true);
-
-    try {
-      const searchResults = await searchMovies(searchQuery);
-      setMovies(searchResults);
-      setError(null);
-    } catch (error) {
-      setError("Failed to search movies...");
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
     <div className="home">
-      <form onSubmit={handleSearch} className="search-form">
-        <input
-          type="text"
-          placeholder="Search for movies..."
-          className="search-input"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+      <div className="search-box">
+        <Search
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          loading={loading}
+          setLoading={setLoading}
+          error={error}
+          setError={setError}
+          movies={movies}
+          setMovies={setMovies}
         />
-        <button type="submit" className="search-button">
-          <FaSearch />
-        </button>
-      </form>
+      </div>
 
       {error && <div className="error-message">{error}</div>}
 
       {loading ? (
-        <div className="loading">Loading...</div>
+        <Loader />
       ) : (
         <div className="movies-grid">
-          {movies.map(
-            (movie) =>
-              movie.title
-                .toLowerCase()
-                .startsWith(searchQuery.toLowerCase()) && (
-                <MovieCard movie={movie} key={movie.id} />
-              )
-          )}
+          {movies.map((movie) => (
+            <MovieCard movie={movie} key={movie.id} />
+          ))}
         </div>
       )}
     </div>
