@@ -20,11 +20,17 @@
 .nav-link {
   padding: 0.5rem 1rem;
   border-radius: 4px;
-  transition: background-color 0.2s;
+  color: #d30d0d;
+  transition: background-color, color 0.2s;
   font-size: 24px;
 }
 
 .nav-link:hover {
+  color: #ff0000;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link.active {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
